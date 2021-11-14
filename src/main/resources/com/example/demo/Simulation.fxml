@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="983.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Simulation">
+   <children>
+      <SplitPane dividerPositions="0.18642350557244175" prefHeight="667.0" prefWidth="989.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="189.0">
+               <children>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/house.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/presentation.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="15.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="294.0" onMouseClicked="#changeToAlgorithms" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/settings.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="15.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="32.0" layoutY="294.0" mnemonicParsing="false" onAction="#changeToAlgorithms" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane layoutY="96.0" prefHeight="571.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Disk Replacement Algorithm">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: D8BFD8;">
+                                 <children>
+                                    <TabPane prefHeight="540.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                                      <tabs>
+                                        <Tab text="FCFS">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" layoutX="-1.0" layoutY="1.0" prefHeight="508.0" prefWidth="800.0" style="-fx-border-color: ADD8E6; -fx-border-width: 10;" text="- FCFS (First-Come-First-Serve) is the easiest disk scheduling algorithm among all the scheduling algorithms. In the FCFS disk&#10;scheduling algorithm, each input/output request is served in the order in which the requests arrive. In this algorithm, starvation does&#10;not occur because FCFS addresses each request.&#10;&#10;o Advantages - &#10;- In FCFS disk scheduling, there is no indefinite delay.&#10;- There is no starvation in FCFS disk scheduling because each request gets a fair chance.&#10; &#10;o Disadvantages -  &#10;- FCFS scheduling is not offered as the best service.&#10;- In FCFS, scheduling disk time is not optimized.&#10; &#10;o Algorithm -&#10; &#10;1. Let Request array represents an array storing indexes of tracks that have been requested in ascending order of their time of arrival. ‘head’ is the position of disk head.&#10;2. Let us one by one take the tracks in default order and calculate the absolute distance of the track from the head.&#10;3. Increment the total seek count with this distance.&#10;4. Currently serviced track position now becomes the new head position.&#10;5. Go to step 2 until all tracks in the request array have not been serviced.&#10;" />
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                        <Tab text="SSTF">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" layoutX="1.0" layoutY="1.0" prefHeight="508.0" prefWidth="800.0" style="-fx-border-color: ADD8E6; -fx-border-width: 10;" text="- SSTF stands for Shortest Seek Time First. In SSTF, requests having the shortest seek time are executed first. &#10;  So, the seek time of everyrequest is calculated in advance in the queue and then they are scheduled &#10;  according to their calculated seek time. As a result, the request near the disk arm will get executed first.  &#10;  SSTF is certainly an improvement over FCFS as it decreases the average response time and increases the &#10;  throughput of the system. It breaks the tie in the direction of head movement.&#10; &#10;o Advantages - &#10;&#10;- It reduces the total seek time as compared to FCFS.&#10;- It provides increased throughput.&#10;- It provides less average response time and waiting time.&#10; &#10;o Disadvantages -&#10; &#10;- There is an overhead of finding out the closest request.&#10;- The requests which are far from the head might starve for the CPU.&#10;- It provides a high variance in response time and waiting time.&#10;- Switching the direction of the head frequently slows down the algorithm.&#10;&#10;o Algorithm -&#10;&#10;- Let Request array represents an array storing indexes of tracks that have been requested. ‘head’ is the &#10;   position of disk head.&#10;- Find the positive distance of all tracks in the request array from the head.&#10;- Find a track from the requested array which has not been accessed/serviced yet and has a minimum &#10;   distance from the head.&#10;- Increment the total seek count with this distance.&#10;- Currently serviced track position now becomes the new head position.&#10;- Go to step 2 until all tracks in the request array have not been serviced." />
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                          <Tab text="SCAN">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" layoutX="-1.0" prefHeight="511.0" prefWidth="800.0" style="-fx-border-color: ADD8E6; -fx-border-width: 10;" text="- In the SCAN disk scheduling algorithm, the head starts from one end of the disk and moves towards the other end, &#10;  servicing requests in between one by one and reaching the other end. Then the direction of the head is reversed &#10;  and the process continues as the head continuously scans back and forth to access the disk. So, this algorithm &#10;  works as an elevator and hence is also known as the elevator algorithm. As a result, the requests at the midrange &#10;  are serviced more and those arriving behind the disk arm will have to wait.&#10; &#10;o Advantages -&#10;- This algorithm is simple and easy to understand.&#10;- The SCAN algorithm is better than FCFS Scheduling Algotithm and has no starvation.&#10;&#10;o Disadvantages - &#10;- More complex algorithm to implement.&#10;- This algorithm is not fair because it causes a long waiting time for the cylinders just visited by the head.&#10;- It causes the head to move till the end of the disk in this way the requests arriving ahead of the arm position &#10;  would get immediate   service but some other requests that arrive behind the arm position will have to wait &#10;  for the request to complete.&#10; &#10;Algorithm - &#10;1. Let Request array represents an array storing indexes of tracks that have been requested in ascending order of &#10;    their time of arrival. ‘head’ is the position of disk head.&#10;2. Let direction represents whether the head is moving towards left or right.&#10;3. In the direction in which the head is moving service all tracks one by one.&#10;4. Calculate the absolute distance of the track from the head.&#10;5. Increment the total seek count with this distance.&#10;6. Currently serviced track position now becomes the new head position.&#10;7. Go to step 3 until we reach one of the ends of the disk.&#10;8. If we reach the end of the disk reverse the direction and go to step 2 until all tracks in the request array have &#10;    not been serviced." />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="CSCAN">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" prefHeight="510.0" prefWidth="795.0" style="-fx-border-color: ADD8E6; -fx-border-width: 10;" text="The Circular SCAN (C-SCAN) scheduling algorithm is a modified version of the SCAN disk scheduling algorithm that deals with the inefficiency of the SCAN algorithm by servicing the requests more uniformly. This is also known as the “Circular Elevator Algorithm” as it essentially treats the cylinders as a circular list that wraps around from the final cylinder to the first one.&#10;&#10;Advantages&#10;- The waiting time for the cylinders just visited by the head is reduced as compared to the SCAN Algorithm.&#10;- It provides a uniform waiting time and better response time.&#10;&#10;Disadvantages &#10;- It causes more seek movements as compared to the SCAN Algorithm.&#10;- It causes the head to move till the end of the disk even if there are no requests to be serviced.&#10;&#10;Algorithm &#10;1. Let Request array represents an array storing indexes of tracks that have been requested in ascending order of their time of arrival. ‘head’ is the position of disk head.&#10;2. The head services only in the right direction from 0 to the size of the disk.&#10;3. While moving in the left direction do not service any of the tracks.&#10;4. When we reach the beginning(left end) reverse the direction.&#10;5. In right direction it services all tracks one by one and calculate the absolute distance of the track from the head.&#10;6. Increment the total seek count with this distance.&#10;7. Currently serviced track position now becomes the new head position.&#10;8. Go to step 6 until we reach the right end of the disk.&#10;9. If we reach the right end of the disk reverse the direction and go to step 3 until all tracks in the request array have not been serviced." />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="LOOK">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" layoutY="-1.0" prefHeight="514.0" prefWidth="800.0" style="-fx-border-color: ADD8E6; -fx-border-width: 10;" text=" LOOK is the advanced version of SCAN (elevator) disk scheduling algorithm which gives slightly better seek time than&#10; any other algorithm in the hierarchy (FCFS-&gt;SSTF-&gt;SCAN-&gt;C-SCAN-&gt;LOOK). The LOOK algorithm services request &#10; similarly as SCAN algorithm meanwhile it also “looks'' ahead as if there are more tracks that are needed to be serviced &#10; in the same direction. If there are no pending requests in the moving direction the head reverses the direction and starts&#10; servicing requests in the opposite direction.&#10; &#10; The main reason behind the better performance of LOOK algorithm in comparison to SCAN is because in this algorithm &#10; the head is not allowed to move till the end of the disk. &#10;&#10; Advantages &#10; - In Look disk scheduling, there is no starvation.&#10; - Look disk scheduling offers low variance in waiting time and response time.&#10; - Look disk scheduling offers better performance as compared to the SCAN disk scheduling.&#10; - In LOOK disk scheduling, there is no requirement for the disk head to move till the end of the disk when we do not have&#10;   any request to be serviced.&#10; &#10; Disadvantages &#10; - In look disk scheduling, there is more overhead to find the end request.&#10; - Look disk scheduling is not used in case of more load.&#10;  &#10; Algorithm:&#10; 1. Let Request array represents an array storing indexes of tracks that have been requested in ascending order of their &#10;time of arrival. ‘head’ is the position of disk head.&#10; 2. The initial direction in which the head is moving is given and it services in the same direction.&#10; 3. The head services all the requests one by one in the direction the head is moving.&#10; 4. The head continues to move in the same direction until all the requests in this direction are not finished.&#10; 5. While moving in this direction calculate the absolute distance of the track from the head.&#10; 6. Increment the total seek count with this distance.&#10; 7. Currently serviced track position now becomes the new head position.&#10; 8. Go to step 5 until we reach at last request in this direction.&#10; 9. If we reach where no requests are needed to be serviced in this direction, reverse the direction and go to step 3 until all&#10;     tracks in the request array have not been serviced." />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="CLOOK">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" layoutX="-1.0" prefHeight="509.0" prefWidth="800.0" style="-fx-border-color: ADD8E6; -fx-border-width: 10;" text="- Given an array of disk track numbers and initial head position, our task is to find the total number of seek operations done&#10;   to access all the requested tracks if C-LOOK disk scheduling algorithm is used. Also, write a program to find the seek &#10;   sequence using C-LOOK disk scheduling algorithm.&#10; &#10; - C-LOOK is an enhanced version of both SCAN as well as LOOK disk scheduling algorithms. This algorithm also uses the &#10;   idea of wrapping the tracks as a circular cylinder as a C-SCAN algorithm but the seek time is better than the C-SCAN &#10;   algorithm. We know that C-SCAN is used to avoid starvation and services all the requests more uniformly, the same goes&#10;   for C-LOOK.&#10;&#10;-  In this algorithm, the head services requests only in one direction (either left or right) until all the requests in this direction &#10;   are not serviced and then jumps back to the farthest request on the other direction and service the remaining requests &#10;   which gives a better uniform servicing as well as avoids wasting seek time for going till the end of the disk.&#10;&#10;o  Advantages&#10;&#10; - It does not cause the head to move till the ends of the disk when there are no requests to be serviced.&#10; - It reduces the waiting time for the cylinders just visited by the head.&#10; - It provides better performance as compared to LOOK Algorithm.&#10; - It does not lead to starvation.&#10; - It provides low variance in response time and waiting time.&#10;&#10;o Disadvantages-&#10;&#10; - There is an overhead of finding the end requests.&#10; &#10;o Algorithm -&#10;&#10; 1. Let Request array represents an array storing indexes of the tracks that have been requested in ascending order of their &#10;     time of arrival and head is the position of the disk head.&#10; 2. The initial direction in which the head is moving is given and it services in the same direction.&#10; 3. The head services all the requests one by one in the direction it is moving.&#10; 4. The head continues to move in the same direction until all the requests in this direction have been serviced.&#10; 5. While moving in this direction, calculate the absolute distance of the tracks from the head.&#10; 6. Increment the total seek count with this distance.&#10; 7. Currently serviced track position now becomes the new head position.&#10; 8. Go to step 5 until we reach the last request in this direction.&#10; 9. If we reach the last request in the current direction then reverse the direction and move the head in this direction  &#10;     until we reach the last request that is needed to be serviced in this direction without servicing the intermediate requests.&#10; 10. Reverse the direction and go to step 3 until all the requests have not been serviced." />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Page Replacement Algorithm">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: D8BFD8;">
+                                 <children>
+                                    <TabPane prefHeight="542.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                                      <tabs>
+                                        <Tab text="FIFO">
+                                             <content>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" layoutX="-1.0" prefHeight="512.0" prefWidth="800.0" text="First In First Out (FIFO) is the simplest page replacement algorithm. In this algorithm, the operating system keeps track of all pages in the&#10;memory in a queue, the oldest page is in the front of the queue. When a page needs to be replaced page in the front of the queue is&#10;selected for removal.&#10;&#10;Advantages :&#10;1)It is simple and easy to understand &amp; implement.&#10;&#10;Disadvantages –:&#10;1)The process effectiveness is low.&#10;2)When we increase the number of frames while using FIFO, we are giving more memory to processes. So, page faults should decrease, but here the page faults are increasing. This problem is called Belady’s Anomaly.&#10;3)Every frame needs to be taken into account off.&#10;&#10;Algorithm:&#10;1- Start traversing the pages.&#10;&#10; i) If set holds less pages than capacity.&#10;&#9; a) Insert page into the set one by one until the size  of set reaches capacity or all page &#9;requests are processed.&#10;&#9; b) Simultaneously maintain the pages in the&#10; queue to perform FIFO.  &#10;&#9; c) Increment page fault&#10; &#10;ii) Else &#10; &#9;  If current page is present in set, do nothing.&#10;   &#10;Else &#10;&#9; a) Remove the first page from the queue&#10; as it was the first to be entered in&#10;  the memory&#10;&#9; b) Replace the first page in the queue with &#10;the current page in the string.  &#9;&#10;&#9; c) Store current page in the queue.&#10;&#9;d) Increment page faults.&#10;2. Return page faults." />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                        <Tab text="LRU">
+                                             <content>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" prefHeight="514.0" prefWidth="800.0" text="The Least Recently Used (LRU) algorithm replaces the page which has not been referred to for a long time. This algorithm is just opposite to&#10;the optimal page replacement algorithm. In this, we look at the past instead of staring at the future.&#10;&#10;Advantages :&#10;1)&#10;It is open for full analysis.&#10;In this, we replace the page which is least recently used, thus free from Belady’s Anomaly.&#10;2)&#10;Easy to choose a page which has faulted and hasn’t been used for a long time.&#10;&#10;Disadvantages :&#10;1)&#10;It requires additional Data Structure to be implemented.&#10;2)&#10;Hardware assistance is high.&#10;Algorithm:&#10;Let capacity be the number of pages that&#10;memory can hold.  Let set be the current&#10;set of pages in memory.&#10;&#10;&#10;1- Start traversing the pages.&#10;&#10; i) If set holds less pages than capacity.&#10;&#10; a) Insert page into the set one by one until &#10;      the size  of set reaches capacity or all&#10;      page requests are processed.&#10;   &#10;b) Simultaneously maintain the recent occurred&#10;      index of each page in a map called indexes.&#10;   c) Increment page fault&#10; &#10;ii) Else &#10;  &#10; If current page is present in set, do nothing.&#10;  &#10; Else &#10;    &#10; a) Find the page in the set that was least recently used. We find it using index array.&#10; We basically need to replace the page with&#10; minimum index.&#10;   &#10; b) Replace the found page with current page.&#10;     &#10;c) Increment page faults.&#10;     &#10;d) Update index of current page.&#10;&#10;&#10;2. Return page faults." />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="OPR">
+                                             <content>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" prefHeight="512.0" prefWidth="800.0" text="An optimal page-replacement algorithm has the lowest page-fault rate of all algorithms. An optimal page-replacement algorithm exists and has&#10;been called OPT or MIN.&#10;It replaces the page that will not be used for the longest period of time. Use the time when a page is to be used.&#10;Advantages :&#10;&#10;1)Complexity is less and easy to implement.&#10;2)Assistance needed is low i.e Data structures used are easy and light.&#10;&#10;Disadvantages :&#10;1)OPR is perfect, but not possible in practice as the operating system cannot know future requests.&#10;2)Error handling is tough.&#10;&#10;Algorithm:&#10;1.If referred page is already present, increment hit count.&#10;2.If not present, find if a page that is never referenced in future. If such a page exists, replace this page with new page. If no such page exists, find a page that is referenced farthest in future. Replace this page with new page." />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="CPU Scheduling Algorithm">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TabPane prefHeight="527.0" prefWidth="795.0" tabClosingPolicy="UNAVAILABLE">
+                                      <tabs>
+                                        <Tab text="FCFS">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea prefHeight="499.0" prefWidth="795.0" />
+                                                      <TextArea editable="false" prefHeight="499.0" prefWidth="795.0" text="First Come First Serve is the full form of FCFS. It is the easiest and most simple CPU scheduling algorithm. In this type of algorithm, the process&#10;which requests the CPU gets the CPU allocation first. This scheduling method can be managed with a FIFO queue.&#10;&#10;As the process enters the ready queue, its PCB (Process Control Block) is linked with the tail of the queue. So, when CPU becomes free, it should be&#10;assigned to the process at the beginning of the queue.&#10;&#10;Characteristics of FCFS method:&#10; - It offers non-preemptive and pre-emptive scheduling algorithm.&#10; - Jobs are always executed on a first-come, first-serve basis.&#10; - It is easy to implement and use.&#10; - However, this method is poor in performance, and the general wait time is quite high." />
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                        <Tab text="SJF">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" prefHeight="498.0" prefWidth="789.0" text="Shortest job first (SJF) or shortest job next, is a scheduling policy that selects the waiting process with the smallest execution time to execute next. SJN is a non-preemptive algorithm. Shortest Job first has the advantage of having a minimum average waiting time among all scheduling algorithms..&#10;&#10;How to compute below times in SJF using a program?&#10;(1)&#9;Completion Time: Time at which process completes its execution.&#10;&#10;(2)&#9;Turn Around Time: Time Difference between completion time and arrival time. Turn Around Time = Completion Time – Arrival Time.&#10;&#10;(3)&#9;Waiting Time(W.T): Time Difference between turn around time and burst time.Waiting Time = Turn Around Time – Burst TimeIn this post, we have assumed arrival times as 0, so turn around and completion times are same.&#10;&#10;&#10;Algorithm:&#10;       -   Sort all the process according to the arrival time. &#10;       -  Then select that process which has minimum arrival time and minimum Burst time. &#10;       -  After completion of process make a pool of process which after till the completion of previous process and select that process among the pool which is having minimum Burst time.&#10;" />
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                          <Tab text="SRTF">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" prefHeight="500.0" prefWidth="795.0" text="In the Shortest Remaining Time First (SRTF) scheduling algorithm, the process with the smallest amount of time remaining until completion is&#10;selected to execute. Since the currently executing process is the one with the shortest amount of time remaining by definition, and since that time&#10;should only reduce as execution progresses, processes will always run until they complete or a new process is added that requires a smaller&#10;amount of time.&#10;&#10;&#10;Advantage:&#10;1-Short processes are handled very quickly.&#10;2- The system also requires very little overhead since it only makes a decision when a process completes or a new process is added&#10;3- When a new process is added the algorithm only needs to compare the currently executing process with the new process, ignoring all other&#10;processes currently waiting to execute.&#10;&#10;&#10;Disadvantage:&#10;1-&#9;Like shortest job first, it has the potential for process starvation.&#10;2-&#9; Long processes may be held off indefinitely if short processes are continually added.&#10;&#10;&#10;Implementation:-&#10;&#10;1- Traverse until all process gets completelyexecuted.&#10;a)&#9;Find process with minimum remaining time atevery single time lap&#10;b)&#9; Reduce its time by 1.&#10;c)&#9; Check if its remaining time becomes 0&#10;d)&#9;Increment the counter of process completion.&#10;e)&#9;e) Completion time of current process =current_time +1;&#10;e) Calculate waiting time for each completedprocess.&#10;wt[i]= Completion time - arrival_time-burst_time&#10;f)Increment time lap by one.&#10;2- Find turnaround time (waiting_time+burst_time).&#10;" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="PRIORITY SCHEDULING">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea editable="false" prefHeight="499.0" prefWidth="795.0" text="Priority Scheduling is a way of scheduling processes based on their importance. The scheduler in this algorithm chooses which tasks to work on&#10;based on their priority.&#10;&#10;Processes with greater priority should be completed first, whereas processes with equal priorities should be completed in a round-robin or&#10;FCFS fashion. The priority is determined by memory needs, time constraints, and so forth.&#10;&#10;Advantages&#10;- This scheduling method is simple to utilize&#10;- Processes are conducted based on priority, thus high-priority processes do not have to wait as long.&#10;- This algorithm provides an excellent tool for clearly defining the relative importance of each operation.&#10;- Appropriate for applications with varying time and resource requirements.&#10;&#10;Disadvantages&#10;- All low-priority processes are lost if the system fails.&#10;- If high-priority processes consume a large amount of CPU time, lower-priority processes may starve and be delayed indefinitely.&#10;- Some low-priority activities may be kept waiting forever by this scheduling algorithm.&#10;- A process is blocked when it is ready to execute but must wait for the CPU because another process is present in execution.&#10;- If a new higher priority process continues to arrive in the ready queue, the process in the waiting state may have to wait for an extended time." />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Concurrency and Deadlock">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="4.0" layoutY="14.0" prefHeight="70.0" prefWidth="795.0" style="-fx-font-weight: bold;" text="Simulation">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

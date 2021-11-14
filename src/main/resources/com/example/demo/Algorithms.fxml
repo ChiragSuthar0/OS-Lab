@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="983.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Algorithms">
+
+    <children>
+        <SplitPane dividerPositions="0.18642350557244175" prefHeight="667.0" prefWidth="989.0">
+            <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="189.0">
+               <children>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/house.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/presentation.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="15.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="294.0" onMouseClicked="#changeToAlgorithms" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/settings.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="15.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="32.0" layoutY="294.0" mnemonicParsing="false" onAction="#changeToAlgorithms" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
+                  <Button layoutX="32.0" layoutY="155.0" mnemonicParsing="false" onAction="#changeToSimulation" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
+               </children>
+            </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                  <Label alignment="CENTER" layoutY="24.0" prefHeight="60.0" prefWidth="800.0" style="-fx-font-weight: bold;" text="CPU SCHEDULING ALGORITHM">
+                     <font>
+                        <Font size="31.0" />
+                     </font></Label>
+                  <AnchorPane layoutY="84.0" prefHeight="583.0" prefWidth="800.0">
+                     <children>
+                        <RadioButton fx:id="radioButtonFCFS" layoutX="101.0" layoutY="98.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="136.0" style="-fx-background-color: FFE4B5; -fx-border-color: black;" text="FCFS">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Algo" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="radioButtonPriority" layoutX="466.0" layoutY="280.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="136.0" style="-fx-background-color: FFE4B5; -fx-border-color: black;" text="Priority Scheduling" toggleGroup="$Algo" />
+                        <RadioButton fx:id="radioButtonSJF" layoutX="101.0" layoutY="280.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="136.0" style="-fx-background-color: FFE4B5; -fx-border-color: black;" text="SJF" toggleGroup="$Algo" />
+                        <RadioButton fx:id="radioButtonSRTF" layoutX="466.0" layoutY="98.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="136.0" style="-fx-background-color: FFE4B5; -fx-border-color: black;" text="SRTF" toggleGroup="$Algo" />
+                        <TextField fx:id="ArrivalTime" layoutX="257.0" layoutY="98.0" prefHeight="49.0" prefWidth="189.0" />
+                        <TextField fx:id="BurstTime" layoutX="257.0" layoutY="189.0" prefHeight="49.0" prefWidth="189.0" />
+                        <TextField fx:id="priority" layoutX="257.0" layoutY="280.0" prefHeight="49.0" prefWidth="189.0" />
+                        <Label layoutX="302.0" layoutY="70.0" text="Arrival Time">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="302.0" layoutY="161.0" text="Burst Time">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="317.0" layoutY="252.0" text="Priority">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="466.0" layoutY="407.0" mnemonicParsing="false" onAction="#runSimulation" prefHeight="49.0" prefWidth="136.0" text="Run Simulation" />
+                        <TextField fx:id="numberOfProcesses" layoutX="259.0" layoutY="407.0" prefHeight="49.0" prefWidth="189.0" />
+                        <Label layoutX="266.0" layoutY="379.0" text="Number of Processes">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+
+</AnchorPane>
