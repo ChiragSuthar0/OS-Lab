@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  ~ Copyright (c) product to Chirag Suthar. You cannot use this software without permission from the Owner. You may face severe charges if you do so.
+  -->
+
+<AnchorPane prefHeight="661.0" prefWidth="983.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Home">
+   <children>
+      <SplitPane dividerPositions="0.18439716312056736" prefHeight="667.0" prefWidth="989.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="189.0">
+               <children>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/house.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/presentation.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="15.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="294.0" onMouseClicked="#changeToAlgorithms" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/settings.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="117.0" fitWidth="151.0" layoutX="32.0" layoutY="528.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/team.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="32.0" layoutY="294.0" mnemonicParsing="false" onAction="#changeToAlgorithms" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
+                  <Button layoutX="32.0" layoutY="155.0" mnemonicParsing="false" onAction="#changeToSimulation" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
+                  <Button layoutX="32.0" layoutY="528.0" mnemonicParsing="false" onAction="#changeToMeetTeam" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
+                  <Button layoutX="32.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeToHome" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="CENTER" layoutY="24.0" prefHeight="60.0" prefWidth="800.0" style="-fx-font-weight: bold;" text="Home">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutY="84.0" prefHeight="583.0" prefWidth="800.0" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
