@@ -38,6 +38,7 @@
                   <Button layoutX="32.0" layoutY="294.0" mnemonicParsing="false" onAction="#changeToAlgorithms" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
                   <Button layoutX="32.0" layoutY="155.0" mnemonicParsing="false" onAction="#changeToSimulation" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
                   <Button layoutX="32.0" layoutY="528.0" mnemonicParsing="false" onAction="#changeToMeetTeam" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
+                  <Button layoutX="32.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeToHome" opacity="0.0" prefHeight="117.0" prefWidth="117.0" text="Button" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
