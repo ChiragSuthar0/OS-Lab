@@ -14,7 +14,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Simulation.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 983, 661);
         stage.setTitle("Operating System Virtual Lab");
         stage.setScene(scene);
